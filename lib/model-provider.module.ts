@@ -23,7 +23,7 @@ import {
     AuthorizationCodeModel,
     ClientCredentialsModel,
     RequestAuthenticationModel,
-} from 'oauth2-server';
+} from '@node-oauth/oauth2-server';
 
 const NO_MODEL_EXCEPTION = 'OAuth2Model not provided';
 

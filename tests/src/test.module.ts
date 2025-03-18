@@ -23,7 +23,8 @@ export class TestModule {
             module: TestModule,
             imports: [
                 OAuth2ServerModule.forRootAsync({
-                    useFactory: (): IOAuth2ServerModuleOptions => ({}),
+                    useFactory:
+                        (): IOAuth2ServerModuleOptions => ({}),
                 }),
             ],
         };

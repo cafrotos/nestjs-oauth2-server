@@ -1,5 +1,5 @@
 import { Controller, Post } from '@nestjs/common';
-import { AuthorizationCode, Token } from 'oauth2-server';
+import { AuthorizationCode, Token } from '@node-oauth/oauth2-server';
 
 import {
     OAuth2Token,

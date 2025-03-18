@@ -1,4 +1,4 @@
-import OAuth2Server = require('oauth2-server');
+import OAuth2Server = require('@node-oauth/oauth2-server');
 import { Test, TestingModule } from '@nestjs/testing';
 import { InternalServerErrorException } from '@nestjs/common';
 

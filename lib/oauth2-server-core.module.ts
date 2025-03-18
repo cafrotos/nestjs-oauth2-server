@@ -5,8 +5,8 @@ import {
     Provider,
     DynamicModule,
 } from '@nestjs/common';
-import { ServerOptions } from 'oauth2-server';
-import OAuth2Server = require('oauth2-server');
+import { ServerOptions } from '@node-oauth/oauth2-server';
+import * as OAuth2Server from '@node-oauth/oauth2-server';
 
 import {
     OAuth2ServerTokenGuard,
@@ -85,7 +85,8 @@ export class OAuth2ServerCoreModule {
             return [this.createAsyncOptionsProvider(options)];
         }
 
-        const useClass = options.useClass as Type<IOAuth2ServerOptionsFactory>;
+        const useClass =
+            options.useClass as Type<IOAuth2ServerOptionsFactory>;
 
         return [this.createAsyncOptionsProvider(options), useClass];
     }

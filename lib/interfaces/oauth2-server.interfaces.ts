@@ -1,5 +1,5 @@
 import { Type } from '@nestjs/common';
-import { ServerOptions } from 'oauth2-server';
+import { ServerOptions } from '@node-oauth/oauth2-server';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 
 export type IOAuth2ServerModuleOptions = Omit<ServerOptions, 'model'>;

@@ -6,7 +6,7 @@ import {
     RefreshTokenModel,
     AuthorizationCodeModel,
     RequestAuthenticationModel,
-} from 'oauth2-server';
+} from '@node-oauth/oauth2-server';
 import moment = require('moment');
 import { Inject, Injectable, Optional } from '@nestjs/common';
 
@@ -25,7 +25,8 @@ export class TestModelService
     implements
         RequestAuthenticationModel,
         AuthorizationCodeModel,
-        RefreshTokenModel {
+        RefreshTokenModel
+{
     constructor(
         @Optional()
         @Inject(RESPONSES)

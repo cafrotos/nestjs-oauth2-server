@@ -7,7 +7,7 @@ import {
     AuthenticateOptions,
     Request as OAuth2Request,
     Response as OAuth2Response,
-} from 'oauth2-server';
+} from '@node-oauth/oauth2-server';
 import {
     Inject,
     Injectable,
@@ -15,7 +15,7 @@ import {
     ExecutionContext,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import OAuth2Server = require('oauth2-server');
+import * as OAuth2Server from '@node-oauth/oauth2-server';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, mergeMap } from 'rxjs/operators';
 

@@ -5,7 +5,7 @@ import {
     ExecutionContext,
     createParamDecorator,
 } from '@nestjs/common';
-import { AuthorizeOptions } from 'oauth2-server';
+import { AuthorizeOptions } from '@node-oauth/oauth2-server';
 
 import { OAuth2ServerTokenGuard } from '../guards';
 import { OAUTH2_METHOD_OPTIONS_METADATA } from '../oauth2-server.constants';
