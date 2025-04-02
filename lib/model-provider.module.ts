@@ -2,6 +2,7 @@ import {
     Reflector,
     DiscoveryModule,
     DiscoveryService,
+    ModuleRef,
 } from '@nestjs/core';
 import { defer, firstValueFrom, of, throwError } from 'rxjs';
 import {
@@ -35,6 +36,7 @@ const NO_MODEL_EXCEPTION = 'OAuth2Model not provided';
             useFactory: (
                 discoverService: DiscoveryService,
                 reflector: Reflector,
+                moduleRef: ModuleRef,
             ): Promise<
                 Type<
                     | PasswordModel
@@ -57,7 +59,12 @@ const NO_MODEL_EXCEPTION = 'OAuth2Model not provided';
                                 ),
                         );
 
-                    return service?.instance;
+                    if (!service?.metatype) {
+                        return null;
+                    }
+
+                    // Lấy instance đã được khởi tạo từ moduleRef
+                    return moduleRef.get(service.metatype);
                 };
 
                 return firstValueFrom(
@@ -75,7 +82,7 @@ const NO_MODEL_EXCEPTION = 'OAuth2Model not provided';
                     ),
                 );
             },
-            inject: [DiscoveryService, Reflector],
+            inject: [DiscoveryService, Reflector, ModuleRef],
         },
     ],
     exports: [OAUTH2_SERVER_MODEL_PROVIDER],
